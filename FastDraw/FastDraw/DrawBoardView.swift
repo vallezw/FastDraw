@@ -130,9 +130,9 @@ public class DrawBoardView: UIView {
         // check if is eraser situation
         if rect.width < self.frame.width || rect.height < self.frame.height {
             // seperate into pen or highlighter, if highlighter, get all segments from segmentmap since it should be in correct order
-            let tiles = segmentmap.getTiles(rect: rect)
+            let tiles = segmentmap.getTiles(rect: rect) // du holst nur tiles die in dem rect drin sind
             var segments_dict = [Int64: [StrokeSegment]]()
-            var type_dict = [Int64: String]()
+            var type_dict = [Int64: String]() // string = highlighter or pen
             for tile in tiles {
                 let rows = segmentmap.getRowFromTable(tile: tile)
                 for row in rows {
